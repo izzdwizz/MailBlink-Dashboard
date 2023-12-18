@@ -12,24 +12,22 @@ export async function middleware(req) {
 
   // route protection logic 
    // Get the user object from the session
-   const { user } = await supabase.auth.getUser(req);
+   const {data: { user }} = await supabase.auth.getUser();
 
   //  get target url
-  const origin = req.nextUrl.origin;
+  const origin = req.url;
+
+  // new url for redirection
+  const url = new URL(req.url)
 
    if (!user && origin.includes("/auth/dashboard")) {
     // Redirect to login page
-    return NextResponse.redirect(`${origin} + /auth/login`);
+    return NextResponse.redirect(url.origin + '/auth/login');
   }
 
-   if (user && origin.includes("/auth/login")) {
+  if (user && (origin.includes("/auth/login") || origin.includes("/auth/signup"))) {
     // Redirect to dashboard page
-    return NextResponse.redirect(`${origin} + /auth/dashboard`);
-  }
-
-   if (user && origin.includes("/auth/signup")) {
-    // Redirect to dashboard page
-    return NextResponse.redirect(`${origin} + /auth/dashboard`);
+    return NextResponse.redirect(url.origin + "/auth/dashboard");
   }
 
   return res

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import Spinner from "@/app/components/Spinner";
-import currentUser from "../currentUser";
 // import { useRouter } from "next/router"; // Import useRouter from Next.js
 
 const Signup = () => {
@@ -14,9 +13,6 @@ const Signup = () => {
   const router = useRouter();
   // Initialize Supabase client
   const supabase = createClientComponentClient();
-
-  // access current user from currentUser component
-  const { user } = currentUser();
 
   // State to manage form inputs and their validation statuses
   const [email, setEmail] = useState("");
@@ -96,12 +92,6 @@ const Signup = () => {
     alert("catch error: " + error.message);
   }
 };
-
-// make signUp a restricted route 
-if (user) {
-  router.push("/auth/dashboard");
-  return <Spinner/>; // Show loading while redirecting
-}
 
   return (
     <div>

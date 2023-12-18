@@ -21,12 +21,6 @@ const Dashboard = () => {
     return <Spinner/>;
   }
 
-  // make dashboard a protected route 
-  if (!user) {
-    router.push("/auth/login");
-    return <Spinner/>; // Show loading while redirecting
-  }
-
   return (
     <div>
       <p>Welcome, {user.email}!</p>

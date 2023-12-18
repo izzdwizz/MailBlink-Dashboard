@@ -130,7 +130,6 @@ const Account = () => {
 
   return (
     <main className="text-base flex">
-      <Sidebar />
       <div className="md:p-20 px-12 py-20 md:w-[65%] w-[100%] m-auto">
         <h2 className="font-bold text-3xl">Account Settings</h2>
         
