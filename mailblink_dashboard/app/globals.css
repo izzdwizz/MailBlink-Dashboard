@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-secondary {
+  @apply bg-gradient-to-br from-[#F5F0FF] via-[#EFF6FE] to-[#EDFAF5];
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #33333382;
+	border-radius: 40px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #fefefe;
+}
+
+* {
+	scroll-behavior: smooth;
+}
+.bg-secondary {
+	@apply bg-gradient-to-br from-[#F5F0FF] via-[#EFF6FE] to-[#EDFAF5];
+}
+
+/* Form styles since all of them are the same */
+
+.form {
+  @apply text-slate-500 flex flex-col gap-5;
+}
+
+label {
+  @apply text-xs font-medium;
+}
+
+input[type="text"],
+select,
+textarea {
+  @apply border-[1px] border-slate-400 font-normal rounded-lg w-full px-2 py-3 mt-2;
+}
+
+.form button {
+  @apply btn bg-ui_secondary1 hover:bg-ui_primary;
+}
+
+.btn {
+  @apply flex justify-center items-center text-white w-full py-4 px-8 font-semibold md:text-base text-sm rounded-full transition-all hover:scale-95;
+}
+
+input:checked + label {
+  color: black;
+}
+
+button {
+  @apply transition-all hover:scale-95 cursor-pointer;
+}
+
+nav .signUp {
+  border-radius: 24px;
+  padding: 8px 24px;
+  background: linear-gradient(to right, #001f3f 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.9s ease-in-out;
+}
+
+nav .signUp:hover {
+  background-position: left bottom;
+  color: white;
+  border: none;
+	@apply text-slate-500 flex flex-col gap-5;
+}
+
+label {
+	@apply text-xs font-medium;
+}
+
+input[type='text'],
+select,
+textarea {
+	@apply border-[1px] border-slate-400 font-normal rounded-lg w-full px-2 py-3 mt-2;
+}
+
+form button {
+	@apply btn bg-ui_secondary1 hover:bg-ui_primary;
+}
+
+/* dashboard/settings */
+
+#input{
+  @apply w-full px-2 py-3 md:w-[100%] mt-2  border border-gray-400  rounded-md ;
+}
+#button{
+  @apply w-[100%] md:w-[50%];
+}
+#inputa,#inputb{
+  @apply w-full md:w-[100%] ;
+}
+
+.btn {
+	@apply flex justify-center items-center text-white w-full py-4 px-8 font-semibold md:text-base text-sm rounded-full transition-all hover:scale-95;
+}
+
+input:checked + label {
+	color: black;
+}
+
+button {
+	@apply transition-all hover:scale-95 cursor-pointer;
+}
+
+nav .signUp {
+	border-radius: 24px;
+	padding: 8px 24px;
+	background: linear-gradient(to right, #001f3f 50%, transparent 50%);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition: all 0.9s ease-in-out;
+}
+
+nav .signUp:hover {
+	background-position: left bottom;
+	color: white;
+	border: none;
+}
+
+.list-alphabet {
+  list-style-type: lower-alpha;
+}
