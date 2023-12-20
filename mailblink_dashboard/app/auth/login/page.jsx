@@ -147,7 +147,7 @@ const Login = () => {
             <br />
             <p className="mt-[5px]">
               <Link
-                href="#"
+                href="/auth/reset"
                 className="text-[#1F284F] text-[14px] font-[600] leading-[18px] font-Poppins">
                 Forgot password?
               </Link>

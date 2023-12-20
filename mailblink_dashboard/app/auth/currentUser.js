@@ -12,7 +12,6 @@ const currentUser = () => {
       try {
         const {
           data: { user },
-          data: {session},
           error,
         } = await supabase.auth.getUser();
         if (error) {

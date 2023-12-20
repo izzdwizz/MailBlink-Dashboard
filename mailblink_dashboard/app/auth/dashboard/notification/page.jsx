@@ -4,8 +4,7 @@ import { useState } from "react";
 import ToggleButton from "./ToggleButton";
 import { IoCheckbox } from "react-icons/io5";
 import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
-import { webNotifications } from "./data";
-import { mailNotifications } from "./data";
+import { webNotifications, mailNotifications } from "@/constants";
 
 const page = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -53,10 +52,9 @@ const page = () => {
           </div>
         ))}
         </div>
-       
-        <div>
-          <button>Save Changes</button>
-          <button>cancel</button>
+        <div className="flex-start gap-7 mt-10">
+          <button className="custom-btn">Save Changes</button>
+          <button className="custom-btn">cancel</button>
         </div>
       </div>
     </main>

@@ -11,8 +11,8 @@ export async function middleware(req) {
   await supabase.auth.getSession()
 
   // route protection logic 
-   // Get the user object from the session
-   const {data: { user }} = await supabase.auth.getUser();
+   // check if user exist from cookie logs
+   const isAuth = req.cookies.has('sb-bynubqxabbrzfctydfwm-auth-token')
 
   //  get target url
   const origin = req.url;
@@ -20,12 +20,12 @@ export async function middleware(req) {
   // new url for redirection
   const url = new URL(req.url)
 
-   if (!user && origin.includes("/auth/dashboard")) {
+   if (!isAuth && origin.includes("/auth/dashboard")) {
     // Redirect to login page
     return NextResponse.redirect(url.origin + '/auth/login');
   }
 
-  if (user && (origin.includes("/auth/login") || origin.includes("/auth/signup"))) {
+  if (isAuth && (origin.includes("/auth/login") || origin.includes("/auth/signup"))) {
     // Redirect to dashboard page
     return NextResponse.redirect(url.origin + "/auth/dashboard");
   }
